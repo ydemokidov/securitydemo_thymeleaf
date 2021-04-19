@@ -6,9 +6,9 @@
 </head>
 
 <body>
-<sec:authorize access="isAuthenticated()">
-    <% response.sendRedirect("/"); %>
-</sec:authorize>
+<div sec:authorize="isAuthenticated()">
+    <p th:text='${#response.sendRedirect("/")}'></p>
+</div>
 <div>
     <form method="POST" action="/login">
         <h2>Вход в систему</h2>

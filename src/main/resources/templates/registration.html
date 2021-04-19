@@ -13,7 +13,7 @@
             <input type="text" th:field="*{username}" placeholder="Username"
                         autofocus="true"/>
             <errors path="username"></errors>
-            ${usernameError}
+            <p th:text="${usernameError}"></p>
         </div>
         <div>
             <input type="password" th:field="*{password}" placeholder="Password"/>
@@ -22,7 +22,7 @@
             <input type="password" th:field="*{passwordConfirm}"
                         placeholder="Confirm your password"/>
             <errors path="password"></errors>
-            ${passwordError}
+            <p th:text="${passwordError}"></p>
         </div>
         <button type="submit">Зарегистрироваться</button>
     </form>
