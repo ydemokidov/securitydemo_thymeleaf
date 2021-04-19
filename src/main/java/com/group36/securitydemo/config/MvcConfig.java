@@ -5,6 +5,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Description;
 import org.springframework.context.support.ResourceBundleMessageSource;
+import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
 import org.springframework.web.servlet.config.annotation.ViewControllerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 import org.thymeleaf.spring5.SpringTemplateEngine;
@@ -22,7 +23,12 @@ public class MvcConfig implements WebMvcConfigurer {
         registry.addViewController("/news").setViewName("news");
     }
 
-   /* @Bean
+    @Override
+    public void addResourceHandlers(ResourceHandlerRegistry registry) {
+        registry.addResourceHandler("/**").addResourceLocations("classpath:/static/css");
+    }
+
+    /* @Bean
     @Description("Thymeleaf Template Resolver")
     public ServletContextTemplateResolver templateResolver(@Autowired ServletContext servletContext) {
         ServletContextTemplateResolver templateResolver = new ServletContextTemplateResolver(servletContext);
